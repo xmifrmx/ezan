@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07142f">
+<meta name="description" content="Namaz vakitleri, canlı sayaç, imsakiye, zikirmatik, dualar ve Kur'an-ı Kerim">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Ezan Vaktim</title>
+<script>
+(function(){var ok=window.Promise&&window.fetch&&window.CSS&&CSS.supports&&CSS.supports("--a","0")&&"".padStart;if(ok)return;window.__old=1;
+var p=location.pathname.split("/")[1],h=location.hostname.split(".")[0],u="https://github.com/"+h+"/"+p+"/releases/latest/download/EzanVaktim.apk";
+document.addEventListener("DOMContentLoaded",function(){document.body.innerHTML='<div style="font:18px sans-serif;padding:40px 24px;max-width:480px;margin:auto;text-align:center"><h2>Ezan Vaktim</h2><p>Bu tarayıcı çok eski olduğu için uygulama açılamıyor. Chrome, Edge, Firefox, Safari veya Brave kullanın.</p><p><a href="'+u+'">Android için APK indir</a></p></div>'})})();
+</script>
+<style>
+:root{--b1:#07142f;--b2:#102a5c;--cd:rgba(255,255,255,.07);--cd2:rgba(255,255,255,.12);--tx:#f2f6ff;--mu:#9db0d6;--ac:#f6c744;--ac2:#6cb4ff;--oa:#1b1405;--ln:rgba(255,255,255,.1);--sk:#050b1c;--gl:255,150,60;--arsz:30px;
+--sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--ar:"Amiri Quran","Noto Naskh Arabic","Scheherazade New","Traditional Arabic","Droid Arabic Naskh","Geeza Pro",serif}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;overflow:hidden;color:var(--tx);font-family:var(--sans);-webkit-text-size-adjust:100%}
+body{background:linear-gradient(180deg,var(--b1),var(--b2));display:flex;flex-direction:column;padding-top:env(safe-area-inset-top)}
+.sky{position:fixed;left:0;bottom:0;width:100%;height:42vh;pointer-events:none;z-index:0}.sky g{fill:var(--sk);opacity:.8}
+.moon{position:fixed;top:78px;right:14px;width:62px;height:62px;border-radius:50%;box-shadow:-15px 7px 0 0 #f6dc9b;filter:drop-shadow(0 0 14px rgba(246,220,155,.55));pointer-events:none;z-index:0;opacity:.55}
+.st{position:fixed;top:0;left:0;width:2px;height:2px;border-radius:50%;pointer-events:none;z-index:0;box-shadow:8vw 9vh #fffc,22vw 4vh #fff9,36vw 14vh #fff8,52vw 7vh #fffc,66vw 19vh #fff9,81vw 11vh #fff8,93vw 5vh #fffc,14vw 25vh #fff8,45vw 28vh #fff7,74vw 31vh #fff8,28vw 38vh #fff6,90vw 36vh #fff7}
+[data-l="1"] .moon,[data-l="1"] .st{display:none}
+header,main,nav{position:relative;z-index:1}
+header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px 6px}
+.ib{width:46px;height:46px;border-radius:50%;border:1px solid var(--ln);background:var(--cd);color:var(--tx);display:grid;place-items:center;cursor:pointer;flex:none;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.ib svg,.ic{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.hc{text-align:center;min-width:0}.hc b{display:block;font-size:19px}.hc small{display:block;font-size:12px;color:var(--mu);margin-top:2px}
+main{flex:1;overflow-y:auto;padding:8px 16px 18px;-webkit-overflow-scrolling:touch}
+section{display:none;max-width:560px;margin:0 auto}section.on{display:block}
+nav{display:flex;gap:2px;margin:0 14px calc(10px + env(safe-area-inset-bottom));padding:6px;background:var(--cd2);border:1px solid var(--ln);border-radius:26px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);max-width:540px;align-self:center;width:calc(100% - 28px)}
+nav button{flex:1;background:none;border:0;border-radius:20px;color:var(--mu);padding:8px 0 7px;font:600 11px var(--sans);display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer}
+nav button.on{color:var(--ac);background:rgba(246,199,68,.13)}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+.card{background:var(--cd);border:1px solid var(--ln);border-radius:22px;padding:16px;margin-bottom:12px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.hero{position:relative;width:min(80vw,310px);aspect-ratio:1;margin:8px auto 16px}
+.hero svg{width:100%;height:100%;overflow:visible}.hero .in{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 22px}
+#mk{filter:drop-shadow(0 0 7px rgba(255,236,170,.9))}
+.nm{font-size:14px;color:var(--mu)}.cd{font-size:clamp(36px,12vw,52px);font-weight:700;font-variant-numeric:tabular-nums;margin:6px 0 4px;letter-spacing:.5px}
+.at{font-size:14px;color:var(--ac);display:flex;align-items:center;gap:6px;font-weight:600}.at .ic{width:15px;height:15px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.q{display:flex;align-items:center;gap:12px;padding:14px;background:var(--cd);border:1px solid var(--ln);border-radius:20px}.q .ic{width:32px;height:32px;color:var(--ac)}.q small{display:block;font-size:12px;color:var(--mu)}.q b{font-size:22px;font-variant-numeric:tabular-nums}
+.rows{background:var(--cd);border:1px solid var(--ln);border-radius:22px;padding:6px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.row{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:16px;font-size:17px;border:1px solid transparent}
+.row .bx{width:38px;height:38px;border-radius:12px;background:var(--cd);display:grid;place-items:center;color:var(--mu)}.row .bx .ic{width:21px;height:21px}
+.row span{flex:1}.row b{font-variant-numeric:tabular-nums;font-weight:600}
+.row .bd{flex:none;background:var(--ac);color:var(--oa);font:800 10.5px var(--sans);padding:4px 9px;border-radius:99px;margin-right:2px}
+.row.nx{border-color:var(--ac);background:rgba(246,199,68,.08)}.row.nx .bx{background:var(--ac);color:var(--oa)}
+.msg{margin:12px 4px;font-size:12.5px;color:var(--mu);text-align:center;line-height:1.5}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;margin-bottom:10px}
+.bar div{text-align:center}.bar b{font-size:18px}.bar small{display:block;font-size:12.5px;color:var(--mu);margin-top:2px}
+.bar .ib{width:40px;height:40px}
+.tb{width:100%;border-collapse:separate;border-spacing:0 6px;font-size:13px;font-variant-numeric:tabular-nums}
+.tb th{color:var(--mu);font-size:11px;font-weight:700;padding:4px 2px;text-align:center}.tb th:first-child,.tb td:first-child{text-align:left;padding-left:10px}
+.tb td{padding:9px 2px;text-align:center;background:var(--cd)}.tb td:first-child{border-radius:14px 0 0 14px;font-weight:700;line-height:1.25}.tb td:last-child{border-radius:0 14px 14px 0}
+.tb td small{white-space:nowrap;display:block;font-weight:400;color:var(--mu);font-size:10.5px}.tb td.g{color:var(--ac);font-weight:800}
+.tb tr.fr td:first-child{box-shadow:inset 3px 0 0 var(--ac2)}.tb tr.td td{background:rgba(246,199,68,.2)}.tb tr.td td:first-child{box-shadow:inset 3px 0 0 var(--ac)}
+.zk{text-align:center}.chs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 12px;-webkit-overflow-scrolling:touch;scrollbar-width:none}.chs::-webkit-scrollbar{display:none}
+.pill{flex:none;background:var(--cd);color:var(--tx);border:1px solid var(--ln);border-radius:99px;padding:9px 15px;font:600 14px var(--sans);cursor:pointer;white-space:nowrap}.pill.on{background:var(--ac);color:var(--oa);border-color:var(--ac)}
+.zb{width:min(68vw,260px);aspect-ratio:1;border-radius:50%;border:1px solid var(--ln);background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.18),rgba(255,255,255,.04) 70%);box-shadow:0 0 0 10px rgba(255,255,255,.04),inset 0 0 40px rgba(255,255,255,.05);color:var(--tx);margin:16px auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;touch-action:manipulation;transition:transform .08s;font-family:var(--sans)}
+.zb:active{transform:scale(.97)}.zb small{color:var(--ac);font-weight:800;letter-spacing:2px;font-size:13px}.zb b{font-size:78px;font-weight:700;line-height:1}.zb i{font-style:normal;color:var(--mu);font-size:17px}
+.zrow{display:flex;align-items:center;gap:8px;justify-content:center;flex-wrap:wrap}
+.seg{display:flex;background:var(--cd);border:1px solid var(--ln);border-radius:99px;padding:4px;margin-bottom:12px}.seg button{flex:1;border:0;background:none;color:var(--mu);border-radius:99px;padding:10px;font:700 14px var(--sans);cursor:pointer}.seg button.on{background:var(--ac);color:var(--oa)}
+.dua{text-align:center}.dua .hd{display:flex;align-items:center;justify-content:center;gap:8px;color:var(--ac);font:800 12px var(--sans);letter-spacing:1px;margin-bottom:6px}.dua .hd .ic{width:16px;height:16px}
+.dua h4{margin:0 0 10px;font-size:16px}.dua .ar{font:var(--arsz)/1.95 var(--ar);direction:rtl;color:var(--ac);margin:0 0 10px}.dua .ok{font-style:italic;color:var(--mu);margin:0 0 10px;font-size:14.5px;line-height:1.5}.dua p{margin:0 0 8px;line-height:1.55}.dua .sr{font-size:12px;color:var(--mu)}
+.dua .fv{float:right;background:none;border:0;color:var(--ac);font-size:22px;cursor:pointer;padding:0;line-height:1}
+input[type=search],select,.inp{width:100%;background:var(--cd);color:var(--tx);border:1px solid var(--ln);border-radius:14px;padding:13px 14px;font:16px var(--sans);margin-bottom:10px;appearance:none;-webkit-appearance:none}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--mu) 50%),linear-gradient(135deg,var(--mu) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 15px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:36px}
+select option{color:#111}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:0;border-radius:16px;padding:15px;font:800 16px var(--sans);color:#14100a;background:linear-gradient(90deg,var(--ac),var(--ac2));cursor:pointer;text-decoration:none}
+.btn.g{background:var(--cd2);color:var(--tx);border:1px solid var(--ln)}
+.h3{display:flex;align-items:center;gap:8px;font-weight:700;margin:2px 0 12px}.h3 .ic{color:var(--ac)}
+.th{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.th button{border:2px solid transparent;background:var(--cd);border-radius:16px;padding:8px 8px 9px;color:var(--tx);font:700 12px var(--sans);cursor:pointer}.th button.on{border-color:var(--ac)}
+.th u{display:block;height:52px;border-radius:10px;margin-bottom:7px;position:relative}.th u:after{content:"";position:absolute;top:7px;right:8px;width:9px;height:9px;border-radius:50%;background:var(--d)}
+.sw{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--ln)}.sw:last-child{border:0}.sw span{flex:1}.sw select{width:auto;margin:0;padding:8px 30px 8px 10px;font-size:15px}.sw input[type=checkbox]{width:24px;height:24px;accent-color:var(--ac)}
+.sc{display:flex;gap:10px;align-items:center;padding:13px;background:var(--cd);border:1px solid var(--ln);border-radius:16px;margin-bottom:8px;cursor:pointer;width:100%;color:var(--tx);font:inherit;text-align:left}
+.sc .n{width:38px;height:38px;border-radius:12px;background:var(--cd2);display:grid;place-items:center;font-weight:800;font-size:14px;color:var(--ac);flex:none}.sc .t{flex:1}.sc .t b{display:block;font-size:16px}.sc .t small{color:var(--mu);font-size:12.5px}.sc .d{font-size:11px;color:var(--ac);font-weight:700}
+.rd{position:sticky;top:-8px;z-index:3;display:flex;align-items:center;gap:8px;padding:8px 0 10px;background:linear-gradient(180deg,var(--b1) 60%,transparent)}.rd b{flex:1;text-align:center;font-size:17px}.rd .ib{width:40px;height:40px}
+.ay{padding:14px 12px;margin-bottom:8px;border-radius:18px;border:1px solid transparent;cursor:pointer;background:var(--cd);position:relative}.ay.mk{border-color:var(--ac);background:rgba(246,199,68,.12)}
+.ay .no{display:inline-grid;place-items:center;min-width:28px;height:28px;padding:0 6px;border-radius:99px;background:var(--cd2);color:var(--ac);font:800 12px var(--sans);margin-bottom:8px}
+.ay.mk .no{background:var(--ac);color:var(--oa)}.ay .ar{font:var(--arsz)/2.1 var(--ar);direction:rtl;text-align:right;margin:0 0 8px}.ay .tr{margin:0;line-height:1.6;font-size:16px}
+.bis{text-align:center;font:var(--arsz)/2 var(--ar);color:var(--ac);margin:4px 0 12px}
+mark{background:rgba(246,199,68,.35);color:inherit;border-radius:4px}
+#dr{position:fixed;inset:0;z-index:20;display:none}#dr.on{display:block}#dr .ov{position:absolute;inset:0;background:rgba(0,0,0,.55)}
+#dr aside{position:absolute;top:0;left:0;bottom:0;width:min(82vw,320px);background:var(--b1);border-right:1px solid var(--ln);padding:calc(20px + env(safe-area-inset-top)) 16px 20px;overflow-y:auto}
+#dr aside h2{margin:0 0 16px;font-size:20px}
+#sheet{position:fixed;left:0;right:0;bottom:calc(86px + env(safe-area-inset-bottom));z-index:15;transform:translateY(160%);transition:transform .35s cubic-bezier(.2,.8,.2,1);padding:0 12px;pointer-events:none}#sheet .in{pointer-events:auto}#sheet.on{transform:none}
+#sheet .in{max-width:520px;margin:auto;background:var(--b1);border:1px solid var(--ac);border-radius:22px;padding:14px 16px;box-shadow:0 -10px 50px rgba(0,0,0,.5);display:flex;flex-wrap:wrap;gap:8px;align-items:center}#sheet .in>h3,#sheet .in>p{flex:0 0 100%}#sheet .btn{flex:1 1 150px;padding:12px;font-size:15px;margin:0}#sheet .x{flex:0 0 auto;width:auto;padding:10px 6px}
+#sheet h3{margin:0;font-size:17px}#sheet p{margin:0;color:var(--mu);font-size:13px;line-height:1.45}
+#sheet .x{background:none;border:0;color:var(--mu);width:100%;padding:8px;font:600 14px var(--sans);cursor:pointer}
+#toast{position:fixed;left:50%;top:76px;transform:translateX(-50%);background:var(--ac);color:var(--oa);padding:11px 18px;border-radius:99px;font-weight:700;z-index:40;opacity:0;pointer-events:none;transition:opacity .25s}#toast.on{opacity:1}
+@media(min-width:700px){.sky{width:560px;left:50%;margin-left:-280px;height:240px}body{font-size:17px}main{padding-top:14px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="st"></div><div class="moon"></div>
+<svg class="sky" viewBox="0 0 400 200" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgb(var(--gl))" stop-opacity="0"/><stop offset="1" stop-color="rgb(var(--gl))" stop-opacity=".5"/></linearGradient></defs><rect width="400" height="200" fill="url(#gl)"/><g><path d="M36 200V92h8v108z"/><path d="M34 92h12l-6-28z"/><rect x="32" y="114" width="16" height="4"/><path d="M60 200c0-40 22-62 50-62s50 22 50 62z"/><rect x="108" y="120" width="4" height="18"/><path d="M165 200c0-26 15-40 32-40s32 14 32 40z"/><path d="M240 200c0-45 26-70 56-70s56 25 56 70z"/><rect x="294" y="116" width="4" height="16"/><path d="M366 200V82h9v118z"/><path d="M364 82h13l-6.5-30z"/><rect x="362" y="108" width="17" height="4"/></g></svg>
+<header>
+ <button class="ib" id="mn" aria-label="Menü"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>
+ <div class="hc"><b id="ilh">Ezan Vaktim</b><small id="dt"></small></div>
+ <button class="ib" id="sh" aria-label="Paylaş"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.6M8.2 13.2l7.6 4.6"/></svg></button>
+</header>
+<main id="main">
+<section id="v-time" class="on">
+ <div class="hero"><svg viewBox="0 0 100 100"><defs><linearGradient id="rg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="var(--ac)"/><stop offset="1" stop-color="var(--ac2)"/></linearGradient></defs><circle cx="50" cy="50" r="44" fill="none" stroke="var(--ln)" stroke-width="3.2"/><circle id="ring" cx="50" cy="50" r="44" fill="none" stroke="url(#rg)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="276.46" stroke-dashoffset="276.46" transform="rotate(-90 50 50)"/><circle id="mk" cx="50" cy="6" r="4.6" fill="#fff1b8"/></svg>
+  <div class="in"><div class="nm" id="nm">Yükleniyor…</div><div class="cd" id="cd">--:--:--</div><div class="at" id="at"></div></div></div>
+ <div class="two"><div class="q" id="q0"></div><div class="q" id="q4"></div></div>
+ <div class="rows" id="rows"></div>
+ <div class="msg" id="msg"></div>
+</section>
+<section id="v-imsak">
+ <div class="card bar"><button class="ib" id="pm" aria-label="Önceki ay"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button><div><b id="mt"></b><small id="mh"></small></div><button class="ib" id="nmo" aria-label="Sonraki ay"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button></div>
+ <div id="imt"></div><div class="msg" id="rmz"></div>
+</section>
+<section id="v-zikir" class="zk">
+ <div class="card"><div class="h3"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/></svg>Zikirmatik</div><div class="chs" id="zc"></div>
+ <button class="zb" id="zb" aria-label="Zikir çek"></button>
+ <div class="zrow" id="zt"></div><div class="msg" id="zi"></div></div>
+</section>
+<section id="v-dua">
+ <div class="seg" id="seg"></div>
+ <div id="dd"><div class="card dua" id="dod"></div><div class="card dua" id="dow"></div>
+  <input type="search" id="dq" placeholder="Dua ara…" autocomplete="off"><div class="chs" id="dc"></div><div id="dl"></div></div>
+ <div id="kq" style="display:none"></div>
+ <div id="qr" style="display:none"></div>
+</section>
+<section id="v-set">
+ <div class="card"><div class="h3"><svg class="ic" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Konum</div>
+  <select id="il" aria-label="İl"></select><select id="ilc" aria-label="İlçe"></select>
+  <button class="btn" id="sv">✓ Kaydet ve başla</button><div class="msg" id="lm"></div></div>
+ <div class="card"><div class="h3"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="8" cy="10" r="1"/><circle cx="12" cy="7.5" r="1"/><circle cx="16" cy="10" r="1"/><path d="M12 21c-1.5 0-2-1.5-1-2.5s0-2.5 2-2.5h3"/></svg>Tema</div><div class="th" id="th"></div></div>
+ <div class="card"><div class="h3"><svg class="ic" viewBox="0 0 24 24"><path d="M6 17V11a6 6 0 0112 0v6l2 2H4zM10 21h4"/></svg>Hatırlatmalar</div><div id="nt"></div></div>
+ <div class="card"><div class="h3">Arapça yazı boyutu</div><input type="range" id="ars" min="22" max="48" style="width:100%;accent-color:var(--ac)"></div>
+ <div class="card" id="apkc"><div class="h3">Uygulama</div><a class="btn" id="apk2" href="#">⬇ Android APK indir</a><div class="msg">Kurulumdan sonra tüm veriler cihazda saklanır, internet gerekmez (Kur'an için sureler ilk açılışta bir kez indirilir).</div></div>
+ <div class="msg">Vakitler cihazda Diyanet yöntemiyle hesaplanır; küçük sapmalar olabilir. Konum izni istenmez, GPS yalnızca siz seçerseniz kullanılır.</div>
+</section>
+</main>
+<nav id="nav"></nav>
+<div id="dr"><div class="ov"></div><aside><h2>Ezan Vaktim</h2><div id="dm"></div></aside></div>
+<div id="sheet"><div class="in"><h3>Ezan Vaktim'i cihazına indir</h3><p id="sp">Vakitler, sayaç, Kur'an ve dualar tek dokunuşla yanında olsun.</p><a class="btn" id="apk1" href="#">⬇ APK indir (Android)</a><button class="btn g" id="pwa" style="display:none">Ana ekrana ekle</button><button class="x" id="sx">Şimdi değil</button></div></div>
+<div id="toast"></div>
+<script>
+"use strict";
+if(window.__old)throw new Error("old");
+const $=s=>document.querySelector(s),pad=n=>String(n).padStart(2,"0"),esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const IL={"Adana":[37.0,35.32],"Adıyaman":[37.76,38.28],"Afyonkarahisar":[38.76,30.54],"Ağrı":[39.72,43.05],"Aksaray":[38.37,34.03],"Amasya":[40.65,35.83],"Ankara":[39.93,32.86],"Antalya":[36.9,30.7],"Ardahan":[41.11,42.7],"Artvin":[41.18,41.82],"Aydın":[37.85,27.84],"Balıkesir":[39.65,27.89],"Bartın":[41.64,32.34],"Batman":[37.88,41.13],"Bayburt":[40.26,40.23],"Bilecik":[40.14,29.98],"Bingöl":[38.88,40.5],"Bitlis":[38.4,42.11],"Bolu":[40.73,31.61],"Burdur":[37.72,30.29],"Bursa":[40.19,29.06],"Çanakkale":[40.15,26.41],"Çankırı":[40.6,33.62],"Çorum":[40.55,34.95],"Denizli":[37.78,29.09],"Diyarbakır":[37.91,40.24],"Düzce":[40.84,31.16],"Edirne":[41.68,26.56],"Elazığ":[38.67,39.22],"Erzincan":[39.75,39.49],"Erzurum":[39.9,41.27],"Eskişehir":[39.78,30.52],"Gaziantep":[37.07,37.38],"Giresun":[40.91,38.39],"Gümüşhane":[40.46,39.48],"Hakkari":[37.58,43.74],"Hatay":[36.4,36.35],"Iğdır":[39.92,44.04],"Isparta":[37.76,30.55],"İstanbul":[41.01,28.98],"İzmir":[38.42,27.14],"Kahramanmaraş":[37.58,36.94],"Karabük":[41.2,32.63],"Karaman":[37.18,33.22],"Kars":[40.6,43.1],"Kastamonu":[41.38,33.78],"Kayseri":[38.72,35.49],"Kilis":[36.72,37.12],"Kırıkkale":[39.85,33.51],"Kırklareli":[41.74,27.23],"Kırşehir":[39.15,34.17],"Kocaeli":[40.77,29.92],"Konya":[37.87,32.48],"Kütahya":[39.42,29.98],"Malatya":[38.35,38.31],"Manisa":[38.61,27.43],"Mardin":[37.31,40.74],"Mersin":[36.8,34.64],"Muğla":[37.22,28.36],"Muş":[38.74,41.49],"Nevşehir":[38.62,34.71],"Niğde":[37.97,34.68],"Ordu":[40.98,37.88],"Osmaniye":[37.07,36.25],"Rize":[41.02,40.52],"Sakarya":[40.76,30.4],"Samsun":[41.29,36.33],"Siirt":[37.93,41.94],"Sinop":[42.03,35.15],"Sivas":[39.75,37.02],"Şanlıurfa":[37.16,38.8],"Şırnak":[37.52,42.46],"Tekirdağ":[41.0,27.51],"Tokat":[40.31,36.55],"Trabzon":[41.0,39.72],"Tunceli":[39.11,39.55],"Uşak":[38.68,29.41],"Van":[38.49,43.38],"Yalova":[40.65,29.27],"Yozgat":[39.82,34.81],"Zonguldak":[41.46,31.8]};
+const NAMES=["İmsak","Güneş","Öğle","İkindi","Akşam","Yatsı"],LBL=["İmsaka","Güneşin doğuşuna","Öğle ezanına","İkindi ezanına","Akşam ezanına","Yatsı ezanına"];
+const IC=['<path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/><path d="M17 3v4M15 5h4"/>','<path d="M3 18h18M7 18a5 5 0 0110 0M12 4v4M5.5 9.5l2 2M18.5 9.5l-2 2"/>','<circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9L7 7M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>','<path d="M3 20h18M7 20a5 5 0 0110 0M12 6v3M4.5 11l2 1.5M19.5 11l-2 1.5"/>','<path d="M3 18h18M7 18a5 5 0 0110 0M12 5v5M9.5 8l2.5 2.5L14.5 8"/>','<path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/>'];
+const svg=(p,c)=>`<svg class="ic ${c||""}" viewBox="0 0 24 24">${p}</svg>`;
+/* [ad, b1, b2, vurgu, yazı, soluk, glow, açık?] */
+const THEMES=[["Mavi Hilal","#07142f","#102a5c","#f6c744","#f2f6ff","#9db0d6","255,150,60"],["Altın Hilal","#0d0a05","#2a1c08","#f2b84b","#fbf1da","#b9a67c","240,170,60"],["Zümrüt Gece","#03140f","#0b3a2c","#3fe0a8","#e6faf2","#86bfae","40,200,150"],["Mor Şafak","#1a0b3a","#5a1b6e","#ff8fcb","#f8ecff","#c4a3d6","255,110,170"],["Çöl Günbatımı","#2a1205","#a65416","#ffd27a","#fff3e0","#e0b98a","255,170,70"],["Gece Siyahı","#000000","#07080c","#ffd24a","#f2f2f2","#8b8b93","80,80,100"],["Okyanus","#04243a","#0b6a80","#3de0d0","#e6f8fc","#86c3d0","60,220,210"],["Gül Kurusu","#2a0816","#8a2447","#ff9ab8","#ffeef3","#d9a3b5","255,120,150"],["Ramazan Feneri","#2a0a05","#a02a0a","#ffbf47","#fff0e0","#e0a98f","255,140,40"],["Medine Yeşili","#05200f","#0e4a22","#b6f06a","#eaf8ea","#8fc29b","120,220,100"],["Açık Gün","#eef3fb","#c9d8f0","#a8710a","#14213d","#566685","255,200,120",1],["Açık Nane","#eaf7f1","#b9e4d3","#0c8a62","#0f3326","#4f7a69","120,210,170",1]];
+let S=Object.assign({il:"İstanbul",cu:null,cl:"",th:0,nt:{},on:false,ars:30,fav:[],zi:0,zt:33,z:{},day:{},qm:"both",ql:null,qk:null,dl:[]},JSON.parse(localStorage.getItem("ev2")||"{}"));
+const save=()=>{try{localStorage.setItem("ev2",JSON.stringify(S))}catch(e){}};
+const toast=m=>{const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove("on"),2200)};
+function applyTheme(){const t=THEMES[S.th],L=t[7]?1:0,r=document.documentElement.style;
+ const m={"--b1":t[1],"--b2":t[2],"--ac":t[3],"--tx":t[4],"--mu":t[5],"--gl":t[6],"--oa":L?"#fff":"#1b1405","--cd":L?"rgba(255,255,255,.7)":"rgba(255,255,255,.07)","--cd2":L?"rgba(255,255,255,.9)":"rgba(255,255,255,.12)","--ln":L?"rgba(20,33,61,.12)":"rgba(255,255,255,.1)","--sk":L?"#6d86ad":"#050b1c","--ac2":L?"#2f6fd6":"#6cb4ff","--arsz":S.ars+"px"};
+ for(const k in m)r.setProperty(k,m[k]);document.body.dataset.l=L;document.querySelector("meta[name=theme-color]").content=t[1]}
+/* ---- vakit hesabı (cihazda, Diyanet açıları) ---- */
+const TUNE=[0,-7,5,4,7,0];
+function calc(dt,la,lo){
+ const r=Math.PI/180,sn=x=>Math.sin(x*r),cs=x=>Math.cos(x*r),tz=-new Date(dt.getFullYear(),dt.getMonth(),dt.getDate(),12).getTimezoneOffset()/60;
+ const jd=Date.UTC(dt.getFullYear(),dt.getMonth(),dt.getDate(),12)/864e5+2440587.5-lo/360;
+ const D=jd-2451545,g=((357.529+.98560028*D)%360+360)%360,q=((280.459+.98564736*D)%360+360)%360;
+ const L=((q+1.915*sn(g)+.02*sn(2*g))%360+360)%360,e=23.439-3.6e-7*D;
+ let RA=Math.atan2(cs(e)*sn(L),cs(L))/r/15;RA=((RA%24)+24)%24;
+ const dec=Math.asin(sn(e)*sn(L))/r;let eqt=q/15-RA;eqt=(((eqt+12)%24)+24)%24-12;
+ const noon=12-lo/15-eqt+tz,H=a=>Math.acos((sn(a)-sn(la)*sn(dec))/(cs(la)*cs(dec)))/r/15;
+ const asr=Math.atan(1/(1+Math.tan(Math.abs(la-dec)*r)))/r;
+ return [noon-H(-18),noon-H(-.833),noon,noon+H(asr),noon+H(-.833),noon+H(-17)].map((h,i)=>{if(isNaN(h))return"--:--";const m=Math.round(h*60+TUNE[i]);return pad(((Math.floor(m/60)%24)+24)%24)+":"+pad(((m%60)+60)%60)})}
+let HF,HN;try{HF=new Intl.DateTimeFormat("en-u-ca-islamic-umalqura",{day:"numeric",month:"numeric",year:"numeric"});HN=new Intl.DateTimeFormat("tr-TR-u-ca-islamic-umalqura",{month:"long"})}catch(e){}
+function hij(d){try{const p=HF.formatToParts(d),g=t=>parseInt(p.find(x=>x.type===t).value,10);return{d:g("day"),n:g("month"),y:g("year"),m:HN.format(d)}}catch(e){return{d:0,n:0,y:0,m:""}}}
+const coords=()=>S.cu||IL[S.il]||IL["İstanbul"],place=()=>S.cu?(S.cl||S.il):S.il;
+function dayData(d){const c=coords();return{t:calc(d,c[0],c[1]),h:hij(d),wd:d.getDay()}}
+const toDate=(dt,s)=>{const p=s.split(":");return new Date(dt.getFullYear(),dt.getMonth(),dt.getDate(),+p[0],+p[1],0)};
+let T=null,lastNi=-2;
+function load(){const n=new Date(),b=new Date(n.getFullYear(),n.getMonth(),n.getDate()),tm=new Date(b.getFullYear(),b.getMonth(),b.getDate()+1);
+ const a=dayData(b),c=dayData(tm);T={base:b,a:a.t.map(s=>toDate(b,s)),b:c.t.map(s=>toDate(tm,s))};lastNi=-2;
+ $("#msg").textContent="Diyanet hesaplama yöntemi · "+place()+" · vakitler cihazda hesaplanır";head();tick();schedule()}
+function head(){const n=new Date();let h=hij(n);
+ $("#dt").textContent=new Intl.DateTimeFormat("tr-TR",{weekday:"long",day:"numeric",month:"long"}).format(n)+(h.d?" · "+h.d+" "+h.m+" "+h.y:"");$("#ilh").textContent=place()}
+const nextIdx=now=>{for(let i=0;i<6;i++)if(T.a[i]>now)return i;return 6};
+const hm=d=>pad(d.getHours())+":"+pad(d.getMinutes());
+function renderRows(ni){const cur=ni===0||ni===6?5:ni-1;
+ $("#rows").innerHTML=NAMES.map((n,i)=>`<div class="row ${i===ni?"nx":""}"><div class="bx">${svg(IC[i])}</div><span>${n}</span>${i===cur?'<em class="bd" style="font-style:normal">ŞİMDİ</em>':""}<b>${hm(T.a[i])}</b></div>`).join("");
+ [0,4].forEach(i=>$("#q"+i).innerHTML=svg(IC[i])+`<div><small>${NAMES[i]}</small><b>${hm(T.a[i])}</b></div>`)}
+function tick(){
+ const now=new Date();if(!T)return;
+ if(T.base.getDate()!==now.getDate()){load();return}
+ const ni=nextIdx(now),nx=ni===6?T.b[0]:T.a[ni],pv=ni===0?new Date(nx-7*36e5):ni===6?T.a[5]:T.a[ni-1];
+ if(ni!==lastNi){lastNi=ni;renderRows(ni)}
+ const s=Math.max(0,Math.round((nx-now)/1000)),f=Math.min(1,Math.max(0,(now-pv)/(nx-pv))),a=f*2*Math.PI-Math.PI/2;
+ $("#nm").textContent=LBL[ni===6?0:ni]+" kalan süre";
+ $("#cd").textContent=pad(Math.floor(s/3600))+":"+pad(Math.floor(s%3600/60))+":"+pad(s%60);
+ $("#at").innerHTML=svg('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>')+NAMES[ni===6?0:ni]+" · "+hm(nx);
+ $("#ring").style.strokeDashoffset=276.46*(1-f);$("#mk").setAttribute("cx",50+44*Math.cos(a));$("#mk").setAttribute("cy",50+44*Math.sin(a));
+ document.title=(s<3600?Math.ceil(s/60)+" dk · ":"")+NAMES[ni===6?0:ni]+" · Ezan Vaktim";notify(now)}
+/* ---- bildirimler ---- */
+const NK=[0,2,3,4,5],LN=(window.Capacitor&&Capacitor.isNativePlatform&&Capacitor.isNativePlatform())?Capacitor.Plugins.LocalNotifications:null;
+let busy=false;
+async function schedule(){
+ if(!LN||busy||!T)return;busy=true;
+ try{const any=S.on||NK.some(i=>S.nt[i]&&S.nt[i].on),pend=await LN.getPending();
+  if(pend.notifications.length)await LN.cancel({notifications:pend.notifications.map(n=>({id:n.id}))});
+  if(!any)return;
+  let pm=await LN.checkPermissions();if(pm.display!=="granted")pm=await LN.requestPermissions();if(pm.display!=="granted")return;
+  try{const ex=await LN.checkExactNotificationSetting();if(ex.exact_alarm!=="granted"&&!localStorage.getItem("exAsk")){localStorage.setItem("exAsk","1");await LN.changeExactNotificationSetting()}}catch(e){}
+  await LN.createChannel({id:"vakit",name:"Namaz vakitleri",description:"Vakit hatırlatmaları",importance:4,visibility:1,vibration:true});
+  const list=[],now=new Date();
+  for(let d=0;d<7;d++){const dt=new Date(now.getFullYear(),now.getMonth(),now.getDate()+d),day=dayData(dt);
+   NK.forEach(i=>{const c=S.nt[i];if(!c||!c.on)return;const t=toDate(dt,day.t[i]);if(isNaN(t))return;const h=day.t[i];
+    if(c.m>0){const a=new Date(t-c.m*6e4);if(a>now)list.push({id:d*100+i*2,title:NAMES[i]+" vaktine "+c.m+" dk kaldı",body:h+" · "+place(),schedule:{at:a,allowWhileIdle:true},channelId:"vakit"})}
+    if((S.on||c.m===0)&&t>now)list.push({id:d*100+i*2+1,title:NAMES[i]+" vakti girdi",body:h+" · "+place(),schedule:{at:t,allowWhileIdle:true},channelId:"vakit"})})}
+  if(list.length)await LN.schedule({notifications:list})}catch(e){console.error(e)}finally{busy=false}}
+async function fire(t,b,id){if(localStorage.getItem("f"+id))return;localStorage.setItem("f"+id,1);
+ try{const r=await navigator.serviceWorker.ready;r.showNotification(t,{body:b,icon:"icon-192.png",tag:id,vibrate:[200,100,200]})}catch(e){try{new Notification(t,{body:b})}catch(x){}}}
+function notify(now){if(LN||!("Notification"in window)||Notification.permission!=="granted")return;const ds=now.toDateString();
+ NK.forEach(i=>{const c=S.nt[i];if(!c||!c.on)return;const t=T.a[i],pre=new Date(t-c.m*6e4);
+  if(c.m>0&&now>=pre&&now-pre<9e4&&now<t)fire(NAMES[i]+" vaktine "+c.m+" dk kaldı",hm(t)+" · "+place(),"p"+i+ds);
+  if((S.on||c.m===0)&&now>=t&&now-t<9e4)fire(NAMES[i]+" vakti girdi",place(),"o"+i+ds)})}
+/* ---- imsakiye ---- */
+let cur=new Date();cur.setDate(1);const DG=["Paz","Pzt","Sal","Çar","Per","Cum","Cmt"];
+function imsakiye(){const y=cur.getFullYear(),m=cur.getMonth(),n=new Date(y,m+1,0).getDate(),td=new Date(),rows=[];let rm=0,rd=0,first,last;
+ for(let i=1;i<=n;i++){const d=new Date(y,m,i),x=dayData(d),isT=td.getFullYear()===y&&td.getMonth()===m&&td.getDate()===i;if(i===1)first=x.h;if(i===n)last=x.h;if(x.h.n===9){rm=1;if(isT)rd=x.h.d}
+  rows.push(`<tr class="${isT?"td":""} ${x.wd===5?"fr":""}"><td>${i} ${DG[x.wd]}<small>${x.h.d} ${x.h.m}</small></td>${x.t.map((t,j)=>`<td class="${j===0||j===4?"g":""}">${t}</td>`).join("")}</tr>`)}
+ $("#mt").textContent=new Intl.DateTimeFormat("tr-TR",{month:"long",year:"numeric"}).format(cur);
+ $("#mh").textContent=first.m===last.m?first.m+" "+first.y:first.m+" – "+last.m+" "+last.y;
+ $("#imt").innerHTML='<table class="tb"><tr><th>TARİH</th>'+NAMES.map(n=>`<th>${n.toLocaleUpperCase("tr")}</th>`).join("")+"</tr>"+rows.join("")+"</table>";
+ $("#rmz").textContent=rm?"Ramazan ayı: sahur (imsak) ve iftar (akşam) vakitleri vurgulanır."+(rd?" Bugün Ramazan'ın "+rd+". günü.":""):"Cuma günleri mavi şeritle işaretlidir."}
+$("#pm").onclick=()=>{cur.setMonth(cur.getMonth()-1);imsakiye()};$("#nmo").onclick=()=>{cur.setMonth(cur.getMonth()+1);imsakiye()};
+/* ---- zikirmatik ---- */
+const ZK=["Serbest","Sübhânallah","Elhamdülillâh","Allâhü Ekber","Salavât","Estağfirullah","Lâ ilâhe illallah"],tk=()=>new Date().toDateString();
+let AC;function beep(){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();o.frequency.value=660;g.gain.value=.07;o.connect(g);g.connect(AC.destination);o.start();o.stop(AC.currentTime+.05)}catch(e){}}
+function zr(){const st=S.z[S.zi]||(S.z[S.zi]={c:0,l:0});
+ $("#zc").innerHTML=ZK.map((n,i)=>`<button class="pill ${i===S.zi?"on":""}" data-i="${i}">${n}</button>`).join("");
+ $("#zb").innerHTML=`<small>${ZK[S.zi].toLocaleUpperCase("tr")}</small><b>${st.c}</b><i>/ ${S.zt}</i>`;
+ $("#zt").innerHTML=[33,99].map(v=>`<button class="pill ${S.zt===v?"on":""}" data-t="${v}">${v}</button>`).join("")+`<button class="pill ${S.zt!==33&&S.zt!==99?"on":""}" data-t="x">Hedef</button><button class="ib" data-r="1" aria-label="Sıfırla">${svg('<path d="M4 12a8 8 0 108-8M4 4v5h5"/>')}</button>`;
+ $("#zi").textContent="Bugün toplam: "+(S.day[tk()]||0)+" · Tamamlanan tur: "+st.l+" · Sayaçlar yalnızca cihazınızda saklanır.";}
+$("#zb").onclick=()=>{const st=S.z[S.zi]||(S.z[S.zi]={c:0,l:0});st.c++;S.day={[tk()]:(S.day[tk()]||0)+1};
+ if(st.c>=S.zt){st.c=0;st.l++;if(navigator.vibrate)navigator.vibrate([120,60,120])}else if(navigator.vibrate)navigator.vibrate(12);beep();save();zr()};
+$("#zc").onclick=e=>{const b=e.target.closest("button");if(b){S.zi=+b.dataset.i;save();zr()}};
+$("#zt").onclick=e=>{const b=e.target.closest("button");if(!b)return;
+ if(b.dataset.r){if(confirm("Bu zikrin sayacı sıfırlansın mı?")){S.z[S.zi]={c:0,l:0};save();zr()}}
+ else if(b.dataset.t==="x"){const v=parseInt(prompt("Hedef sayı:",S.zt),10);if(v>0){S.zt=v;save();zr()}}else{S.zt=+b.dataset.t;save();zr()}};
+/* ---- dualar ---- */
+const DUAS=[
+["Anne-Baba İçin Dua","Aile","رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا","Rabbirhamhümâ kemâ rabbeyânî sagîrâ.","Rabbim! Küçüklüğümde onlar beni nasıl yetiştirdilerse, sen de onlara öyle merhamet et.","İsrâ, 24"],
+["Şifâ Duâsı","Şifa","اَللّٰهُمَّ رَبَّ النَّاسِ أَذْهِبِ الْبَأْسَ اشْفِ أَنْتَ الشَّافِي لَا شِفَاءَ إِلَّا شِفَاؤُكَ شِفَاءً لَا يُغَادِرُ سَقَمًا","Allâhümme rabben-nâsi ezhibil-be's, işfi entesh-shâfî lâ şifâe illâ şifâüke şifâen lâ yüğâdiru sekamâ.","Ey insanların Rabbi Allah'ım! Hastalığı gider, şifa ver; şifa veren sensin. Senin şifandan başka şifa yoktur. Hiçbir hastalık bırakmayan bir şifa ver.","Buhârî, Merdâ, 20; Müslim, Selâm, 46"],
+["Besmele","Genel","بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ","Bismillâhirrahmânirrahîm.","Rahman ve Rahim olan Allah'ın adıyla.","Fâtiha, 1"],
+["Rabbenâ Âtinâ","Genel","رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ","Rabbenâ âtinâ fid-dünyâ haseneten ve fil-âhirati haseneten ve kınâ azâbe'n-nâr.","Rabbimiz, bize dünyada da iyilik ver, ahirette de iyilik ver ve bizi ateş azabından koru.","Bakara, 201"],
+["Yemek Duası","Günlük","اَللّٰهُمَّ بَارِكْ لَنَا فِيمَا رَزَقْتَنَا وَقِنَا عَذَابَ النَّارِ","Allâhümme bârik lenâ fîmâ razaktenâ ve kınâ azâbe'n-nâr.","Allah'ım, bize verdiğin rızıkta bereket ver ve bizi ateş azabından koru.",""],
+["Salavât-ı Şerife","Salavat","اَللّٰهُمَّ صَلِّ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى آلِ سَيِّدِنَا مُحَمَّدٍ","Allâhümme salli alâ seyyidinâ Muhammedin ve alâ âli seyyidinâ Muhammed.","Allah'ım, efendimiz Muhammed'e ve onun âline salât eyle.",""],
+["İftar Duası","Ramazan","ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الْأَجْرُ إِنْ شَاءَ اللّٰهُ","Zeheba'z-zamedü vebtellet-il urûku ve sebete'l-ecru inşâallah.","Susuzluk gitti, damarlar ıslandı, inşallah sevap kesinleşti.","Ebû Dâvûd, Savm, 22"],
+["Tevekkül Duası","Günlük","حَسْبِيَ اللّٰهُ لَا إِلٰهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ","Hasbiyallâhü lâ ilâhe illâ hû, aleyhi tevekkeltü ve hüve rabbü'l-arşi'l-azîm.","Allah bana yeter. Ondan başka ilah yoktur. Yalnız ona dayandım; o, yüce arşın sahibidir.","Tevbe, 129"],
+["İlim Duası","Genel","رَبِّ زِدْنِي عِلْمًا","Rabbi zidnî ılmâ.","Rabbim, ilmimi artır.","Tâhâ, 114"],
+["Gönül Genişliği Duası","Genel","رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي","Rabbişrah lî sadrî ve yessir lî emrî.","Rabbim, gönlümü genişlet ve işimi kolaylaştır.","Tâhâ, 25-26"],
+["Yûnus Duası","Sıkıntı","لَا إِلٰهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ","Lâ ilâhe illâ ente sübhâneke innî küntü minez-zâlimîn.","Senden başka ilah yoktur. Seni tenzih ederim. Gerçekten ben zalimlerden oldum.","Enbiyâ, 87"],
+["Uyku Duası","Günlük","بِاسْمِكَ اللّٰهُمَّ أَمُوتُ وَأَحْيَا","Bismikellâhümme emûtü ve ahyâ.","Allah'ım! Senin adınla ölür (uyur) ve dirilirim (uyanırım).","Buhârî, Daavât, 7"],
+["Uyanma Duası","Günlük","اَلْحَمْدُ لِلّٰهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ","Elhamdülillâhillezî ahyânâ ba'de mâ emâtenâ ve ileyhin-nüşûr.","Bizi öldürdükten (uyuttuktan) sonra dirilten Allah'a hamdolsun. Dönüş yalnız onadır.","Buhârî, Daavât, 7"]];
+let dcat="Tümü",dq="";
+const duaCard=(d,i,fv)=>`<h4>${fv?`<button class="fv" data-f="${i}" aria-label="Favori">${S.fav.indexOf(i)>-1?"★":"☆"}</button>`:""}${d[0]}</h4><p class="ar" lang="ar">${d[2]}</p><p class="ok">${d[3]}</p><p>${d[4]}</p>${d[5]?`<div class="sr">${d[5]}</div>`:""}`;
+function duas(){const n=new Date(),doy=Math.floor((n-new Date(n.getFullYear(),0,0))/864e5),wk=Math.floor(doy/7),a=doy%DUAS.length,b=(wk*3+1)%DUAS.length;
+ $("#dod").innerHTML=`<div class="hd">${svg(IC[2])}GÜNÜN DUASI</div>`+duaCard(DUAS[a],a,1);
+ $("#dow").innerHTML=`<div class="hd">${svg(IC[5])}HAFTANIN DUASI</div>`+duaCard(DUAS[b],b,1);
+ const cats=["Tümü","Favoriler"].concat(DUAS.map(d=>d[1]).filter((c,i,a)=>a.indexOf(c)===i));
+ $("#dc").innerHTML=cats.map(c=>`<button class="pill ${c===dcat?"on":""}" data-c="${c}">${c}</button>`).join("");
+ const nq=norm(dq);$("#dl").innerHTML=DUAS.map((d,i)=>[d,i]).filter(x=>(dcat==="Tümü"||(dcat==="Favoriler"?S.fav.indexOf(x[1])>-1:x[0][1]===dcat))&&norm(x[0].join(" ")).indexOf(nq)>-1).map(x=>`<div class="card dua">${duaCard(x[0],x[1],1)}</div>`).join("")||'<div class="msg">Sonuç bulunamadı.</div>'}
+const norm=s=>String(s).toLocaleLowerCase("tr").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ı/g,"i");
+$("#dc").onclick=e=>{const b=e.target.closest("button");if(b){dcat=b.dataset.c;duas()}};$("#dq").oninput=e=>{dq=e.target.value;duas()};
+$("#dd").addEventListener("click",e=>{const b=e.target.closest("[data-f]");if(!b)return;const f=+b.dataset.f;S.fav=S.fav.indexOf(f)>-1?S.fav.filter(x=>x!==f):S.fav.concat(f);save();duas()});
+/* ---- Kur'an ---- */
+const SN=["Fâtiha","Bakara","Âl-i İmrân","Nisâ","Mâide","En'âm","A'râf","Enfâl","Tevbe","Yûnus","Hûd","Yûsuf","Ra'd","İbrâhîm","Hicr","Nahl","İsrâ","Kehf","Meryem","Tâhâ","Enbiyâ","Hac","Mü'minûn","Nûr","Furkân","Şuarâ","Neml","Kasas","Ankebût","Rûm","Lokmân","Secde","Ahzâb","Sebe'","Fâtır","Yâsîn","Sâffât","Sâd","Zümer","Mü'min","Fussilet","Şûrâ","Zuhruf","Duhân","Câsiye","Ahkâf","Muhammed","Fetih","Hucurât","Kâf","Zâriyât","Tûr","Necm","Kamer","Rahmân","Vâkıa","Hadîd","Mücâdele","Haşr","Mümtehine","Saff","Cuma","Münâfikûn","Teğâbün","Talâk","Tahrîm","Mülk","Kalem","Hâkka","Meâric","Nûh","Cinn","Müzzemmil","Müddessir","Kıyâme","İnsân","Mürselât","Nebe'","Nâziât","Abese","Tekvîr","İnfitâr","Mutaffifîn","İnşikâk","Bürûc","Târık","A'lâ","Gâşiye","Fecr","Beled","Şems","Leyl","Duhâ","İnşirâh","Tîn","Alak","Kadir","Beyyine","Zilzâl","Âdiyât","Kâria","Tekâsür","Asr","Hümeze","Fîl","Kureyş","Mâûn","Kevser","Kâfirûn","Nasr","Mesed","İhlâs","Felak","Nâs"];
+const SC=[7,286,200,176,120,165,206,75,129,109,123,111,43,52,99,128,111,110,98,135,112,78,118,64,77,227,93,88,69,60,34,30,73,54,45,83,182,88,75,85,54,53,89,59,37,35,38,29,18,45,60,49,62,55,78,96,29,22,24,13,14,11,11,18,12,12,30,52,52,44,28,28,20,56,40,31,50,40,46,42,29,19,36,25,22,17,19,26,30,20,15,21,11,8,8,19,5,8,8,11,11,8,3,9,5,4,7,3,6,3,5,4,5,6];
+const BIS="بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ";
+const idb=new Promise(res=>{try{const r=indexedDB.open("ezan",1);r.onupgradeneeded=()=>r.result.createObjectStore("q");r.onsuccess=()=>res(r.result);r.onerror=()=>res(null)}catch(e){res(null)}});
+async function dbGet(k){const d=await idb;if(!d){try{return JSON.parse(localStorage.getItem("q"+k)||"null")}catch(e){return null}}return new Promise(r=>{try{const q=d.transaction("q").objectStore("q").get(k);q.onsuccess=()=>r(q.result||null);q.onerror=()=>r(null)}catch(e){r(null)}})}
+async function dbSet(k,v){const d=await idb;if(!d){try{localStorage.setItem("q"+k,JSON.stringify(v))}catch(e){}return}return new Promise(r=>{try{const t=d.transaction("q","readwrite");t.objectStore("q").put(v,k);t.oncomplete=()=>r();t.onerror=()=>r()}catch(e){r()}})}
+async function sure(n){const c=await dbGet(n);if(c)return c;
+ const r=await fetch("https://api.alquran.cloud/v1/surah/"+n+"/editions/quran-uthmani,tr.diyanet");if(!r.ok)throw new Error("net");const j=await r.json();
+ const ar=j.data[0].ayahs.map(a=>a.text),tr=j.data[1].ayahs.map(a=>a.text);
+ if(n!==1&&n!==9){const w=ar[0].split(" ");if(w.length>4&&w[0].replace(/[\u064B-\u065F\u0670]/g,"")==="بسم")ar[0]=w.slice(4).join(" ")}
+ const o={a:ar,t:tr};await dbSet(n,o);if(S.dl.indexOf(n)<0){S.dl.push(n);save()}return o}
+let DS="dua",dlBusy=false;
+function duaView(){$("#seg").style.display=DS==="oku"?"none":"flex";
+ $("#seg").innerHTML=[["dua","Dualar"],["kuran","Kur'an-ı Kerim"]].map(x=>`<button data-s="${x[0]}" class="${(DS==="oku"?"kuran":DS)===x[0]?"on":""}">${x[1]}</button>`).join("");
+ $("#dd").style.display=DS==="dua"?"block":"none";$("#kq").style.display=DS==="kuran"?"block":"none";$("#qr").style.display=DS==="oku"?"block":"none";
+ if(DS==="dua")duas();if(DS==="kuran")qhome()}
+$("#seg").onclick=e=>{const b=e.target.closest("button");if(b){DS=b.dataset.s;duaView();$("#main").scrollTop=0}};
+function qhome(){const l=S.ql,k=S.qk;
+ $("#kq").innerHTML=(l||k?`<div class="card"><div class="h3">Kaldığın yerden devam et</div>${l?`<button class="btn" data-o="${l.s}:${l.a}">${SN[l.s-1]} sûresi, ${l.a}. âyet</button>`:""}${k?`<button class="btn g" style="margin-top:8px" data-o="${k.s}:${k.a}">★ İşaretli: ${SN[k.s-1]} ${k.a}. âyet</button>`:""}</div>`:"")+
+ `<input type="search" id="qs" placeholder="Âyet ara: kelime, 2:255 veya Bakara 255" autocomplete="off"><div id="qres"></div>
+ <div class="chs">${[["both","Arapça + Türkçe"],["ar","Arapça"],["tr","Türkçe"]].map(x=>`<button class="pill ${S.qm===x[0]?"on":""}" data-m="${x[0]}">${x[1]}</button>`).join("")}</div>
+ <button class="btn g" id="qdl" style="margin-bottom:12px">⬇ Tüm Kur'an'ı cihaza indir (${S.dl.length}/114)</button>
+ <div id="ql">${SN.map((n,i)=>`<button class="sc" data-o="${i+1}:1"><div class="n">${i+1}</div><div class="t"><b>${n}</b><small>${SC[i]} âyet</small></div>${S.dl.indexOf(i+1)>-1?'<span class="d">✓ cihazda</span>':""}</button>`).join("")}</div>`}
+$("#kq").addEventListener("click",async e=>{
+ const o=e.target.closest("[data-o]");if(o){const p=o.dataset.o.split(":");openSure(+p[0],+p[1]);return}
+ const m=e.target.closest("[data-m]");if(m){S.qm=m.dataset.m;save();qhome();return}
+ if(e.target.closest("#qdl")){if(dlBusy)return;dlBusy=true;const b=$("#qdl");
+  try{for(let i=1;i<=114;i++){if(S.dl.indexOf(i)<0)await sure(i);b.textContent="İndiriliyor… "+i+"/114"}toast("Kur'an cihaza indirildi")}catch(x){toast("İnternet bağlantısı gerekli")}dlBusy=false;qhome()}});
+let qt;document.addEventListener("input",e=>{if(e.target.id!=="qs")return;clearTimeout(qt);const v=e.target.value.trim();qt=setTimeout(()=>qsearch(v),350)});
+async function qsearch(q){const R=$("#qres");if(!R)return;if(q.length<2){R.innerHTML="";return}
+ const nq=norm(q),m1=nq.match(/^(\d{1,3})\s*[:.\s]\s*(\d{1,3})$/),m2=nq.match(/^(.+?)\s+(\d{1,3})$/);let s=0,a=1;
+ if(m1){s=+m1[1];a=+m1[2]}else if(m2){const i=SN.findIndex(n=>norm(n).replace(/[^a-z]/g,"")===m2[1].replace(/[^a-z]/g,""));if(i>-1){s=i+1;a=+m2[2]}}
+ if(s>=1&&s<=114&&a>=1&&a<=SC[s-1]){R.innerHTML=`<button class="sc" data-o="${s}:${a}"><div class="n">${s}</div><div class="t"><b>${SN[s-1]} ${a}. âyet</b><small>Aç</small></div></button>`;return}
+ const hits=[];const ns=SN.map((n,i)=>[n,i]).filter(x=>norm(x[0]).indexOf(nq)>-1);ns.forEach(x=>hits.push(`<button class="sc" data-o="${x[1]+1}:1"><div class="n">${x[1]+1}</div><div class="t"><b>${x[0]} sûresi</b><small>${SC[x[1]]} âyet</small></div></button>`));
+ R.innerHTML=hits.join("")+'<div class="msg">Âyetlerde aranıyor…</div>';
+ const re=new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"gi"),seen={};let n=0;
+ for(const d of S.dl.slice().sort((a,b)=>a-b)){const c=await dbGet(d);if(!c)continue;for(let i=0;i<c.t.length&&n<40;i++){if(norm(c.t[i]).indexOf(nq)>-1||c.a[i].indexOf(q)>-1){seen[d+":"+(i+1)]=1;n++;hits.push(`<button class="sc" data-o="${d}:${i+1}"><div class="t"><b>${SN[d-1]} ${i+1}</b><small>${esc(c.t[i]).replace(re,x=>"<mark>"+x+"</mark>")}</small></div></button>`)}}}
+ if(S.dl.length<114&&navigator.onLine){try{const r=await fetch("https://api.alquran.cloud/v1/search/"+encodeURIComponent(q)+"/all/tr.diyanet");if(r.ok){const j=await r.json();(j.data.matches||[]).slice(0,40).forEach(x=>{const k=x.surah.number+":"+x.numberInSurah;if(!seen[k]){seen[k]=1;n++;hits.push(`<button class="sc" data-o="${k}"><div class="t"><b>${SN[x.surah.number-1]} ${x.numberInSurah}</b><small>${esc(x.text).replace(re,y=>"<mark>"+y+"</mark>")}</small></div></button>`)}})}}catch(e){}}
+ const cur=$("#qs");if(!cur||cur.value.trim()!==q)return;
+ R.innerHTML=hits.join("")+(n?"":'<div class="msg">Âyet bulunamadı. Daha fazla sonuç için Kur\'an\'ı cihaza indirin ya da internete bağlanın.</div>')}
+let obs;
+async function openSure(n,a){DS="oku";duaView();go("dua");const R=$("#qr");R.innerHTML='<div class="msg">Yükleniyor…</div>';let c;
+ try{c=await sure(n)}catch(e){R.innerHTML=`<div class="rd"><button class="ib" data-x="b" aria-label="Geri">${svg('<path d="M15 6l-6 6 6 6"/>')}</button><b>${SN[n-1]}</b></div><div class="card msg">Bu sûre henüz cihazda yok. İlk okuma için internet gerekir; sonra çevrimdışı çalışır.</div><button class="btn" data-x="r${n}">Tekrar dene</button>`;return}
+ const m=S.qm,mk=S.qk&&S.qk.s===n?S.qk.a:0;
+ R.innerHTML=`<div class="rd"><button class="ib" data-x="b" aria-label="Geri">${svg('<path d="M15 6l-6 6 6 6"/>')}</button><b>${n}. ${SN[n-1]}</b><button class="ib" data-x="p" aria-label="Önceki sûre">${svg('<path d="M15 6l-6 6 6 6"/>')}</button><button class="ib" data-x="n" aria-label="Sonraki sûre">${svg('<path d="M9 6l6 6-6 6"/>')}</button></div>
+ <div class="chs">${[["both","Arapça + Türkçe"],["ar","Arapça"],["tr","Türkçe"]].map(x=>`<button class="pill ${m===x[0]?"on":""}" data-m="${x[0]}">${x[1]}</button>`).join("")}<button class="pill" data-x="s-">A−</button><button class="pill" data-x="s+">A+</button></div>
+ ${n!==1&&n!==9&&m!=="tr"?`<div class="bis">${BIS}</div>`:""}
+ ${c.a.map((t,i)=>`<div class="ay ${mk===i+1?"mk":""}" id="a${i+1}" data-a="${i+1}"><span class="no">${i+1}</span>${m!=="tr"?`<p class="ar" lang="ar">${t}</p>`:""}${m!=="ar"?`<p class="tr">${esc(c.t[i])}</p>`:""}</div>`).join("")}
+ <div class="msg">Bir âyete dokunarak işaretleyebilirsiniz. Kaldığınız yer otomatik kaydedilir.</div>`;
+ R.dataset.s=n;const el=$("#a"+(a||1));if(el&&a>1)el.scrollIntoView();else $("#main").scrollTop=0;
+ if(obs)obs.disconnect();if("IntersectionObserver"in window){let t;obs=new IntersectionObserver(es=>{es.forEach(x=>{if(x.isIntersecting){clearTimeout(t);const v=+x.target.dataset.a;t=setTimeout(()=>{S.ql={s:n,a:v};save()},600)}})},{root:$("#main"),rootMargin:"-15% 0px -75% 0px"});R.querySelectorAll(".ay").forEach(x=>obs.observe(x))}}
+$("#qr").addEventListener("click",e=>{const R=$("#qr"),n=+R.dataset.s;
+ const x=e.target.closest("[data-x]");if(x){const v=x.dataset.x;if(v==="b"){if(obs)obs.disconnect();DS="kuran";duaView()}else if(v==="p"&&n>1)openSure(n-1,1);else if(v==="n"&&n<114)openSure(n+1,1);else if(v[0]==="r")openSure(+v.slice(1),1);else if(v==="s+"||v==="s-"){S.ars=Math.max(22,Math.min(48,S.ars+(v==="s+"?3:-3)));save();applyTheme()}return}
+ const m=e.target.closest("[data-m]");if(m){S.qm=m.dataset.m;save();openSure(n,S.ql&&S.ql.s===n?S.ql.a:1);return}
+ const a=e.target.closest(".ay");if(a){const v=+a.dataset.a;if(S.qk&&S.qk.s===n&&S.qk.a===v){S.qk=null;a.classList.remove("mk")}else{const o=$(".ay.mk");if(o)o.classList.remove("mk");S.qk={s:n,a:v};a.classList.add("mk");toast("Âyet işaretlendi")}save()}});
+/* ---- ayarlar ---- */
+function settings(){const ilo=Object.keys(IL);
+ $("#il").innerHTML=ilo.map(n=>`<option ${n===S.il?"selected":""}>${n}</option>`).join("");
+ $("#ilc").innerHTML=`<option value="m">${S.cu&&S.cl?S.cl:"Merkez"}</option><option value="gps">📍 Konumumu kullan (GPS)</option><option value="el">✎ Elle koordinat gir</option>`;
+ $("#lm").textContent=S.cu?"Kullanılan koordinat: "+S.cu[0].toFixed(3)+", "+S.cu[1].toFixed(3):"İl merkezi koordinatı kullanılıyor. İlçe için GPS veya elle koordinat seçin.";
+ $("#th").innerHTML=THEMES.map((t,i)=>`<button data-t="${i}" class="${i===S.th?"on":""}"><u style="background:linear-gradient(180deg,${t[1]},${t[2]});--d:${t[3]}"></u>${t[0]}</button>`).join("");
+ const ops=[0,5,10,15,30,45,60,120];
+ $("#nt").innerHTML=NK.map(i=>{const c=S.nt[i]||{on:false,m:15};return `<div class="sw"><span>${NAMES[i]}</span><select data-m="${i}">${ops.map(m=>`<option value="${m}" ${m===c.m?"selected":""}>${m?m+" dk önce":"Vaktinde"}</option>`).join("")}</select><input type="checkbox" data-n="${i}" ${c.on?"checked":""} aria-label="${NAMES[i]} hatırlatması"></div>`}).join("")+`<div class="sw"><span>Hatırlatma varsa vakit girince de bildir</span><input type="checkbox" id="on" ${S.on?"checked":""}></div>`;
+ $("#ars").value=S.ars}
+$("#sv").onclick=()=>{const il=$("#il").value,k=$("#ilc").value;
+ const done=()=>{save();applyTheme();load();settings();toast("Kaydedildi: "+place());go("time")};
+ if(k==="gps"){if(!navigator.geolocation){toast("Bu cihazda GPS yok");return}
+  navigator.geolocation.getCurrentPosition(p=>{S.il=il;S.cu=[p.coords.latitude,p.coords.longitude];S.cl=il+" · Konumum";done()},()=>toast("Konum izni verilmedi"),{timeout:15000,maximumAge:6e5});return}
+ if(k==="el"){const v=(prompt("Enlem,boylam (ör. 37.07,37.38):")||"").split(",").map(Number);if(v.length!==2||v.some(isNaN)||Math.abs(v[0])>66||Math.abs(v[1])>180){toast("Geçersiz koordinat");return}S.il=il;S.cu=v;S.cl=il+" · Özel";done();return}
+ S.il=il;S.cu=null;S.cl="";done()};
+$("#th").onclick=e=>{const b=e.target.closest("button");if(b){S.th=+b.dataset.t;save();applyTheme();settings()}};
+$("#ars").oninput=e=>{S.ars=+e.target.value;save();applyTheme()};
+$("#nt").onchange=async e=>{const t=e.target;
+ if(!LN&&t.checked&&(t.dataset.n!=null||t.id==="on")&&"Notification"in window&&Notification.permission!=="granted"){const p=await Notification.requestPermission();if(p!=="granted"){t.checked=false;toast("Bildirim izni verilmedi");return}}
+ if(t.dataset.n!=null){const i=t.dataset.n;S.nt[i]=Object.assign({on:false,m:15},S.nt[i],{on:t.checked})}
+ if(t.dataset.m!=null){const i=t.dataset.m;S.nt[i]=Object.assign({on:false,m:15},S.nt[i],{m:+t.value})}
+ if(t.id==="on")S.on=t.checked;save();schedule()};
+/* ---- yönlendirme ---- */
+const TABS=[["time","Vakitler",'<path d="M5 20h14M8 20v-6a4 4 0 018 0v6M12 6v4M9 8h6"/>'],["imsak","İmsakiye",'<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/>'],["zikir","Zikir",'<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/>'],["dua","Dualar",'<path d="M4 5h7a3 3 0 013 3v12a2 2 0 00-2-2H4zM20 5h-7a3 3 0 00-3 3"/>'],["set","Ayarlar",'<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>']];
+$("#nav").innerHTML=TABS.map(t=>`<button data-k="${t[0]}" class="${t[0]==="time"?"on":""}">${svg(t[2])}${t[1]}</button>`).join("");
+function go(t,push){
+ document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id==="v-"+t));
+ document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("on",b.dataset.k===t));
+ const f={imsak:imsakiye,zikir:zr,dua:duaView,set:settings}[t];if(f)try{f()}catch(e){console.error(e)}
+ $("#main").scrollTop=0;if(push!==false)try{history.pushState({t:t},"","#"+t)}catch(e){}}
+$("#nav").onclick=e=>{const b=e.target.closest("button");if(b){if(b.dataset.k==="dua"&&DS==="oku")DS="kuran";go(b.dataset.k)}};
+addEventListener("popstate",e=>{closeDr();go((e.state&&e.state.t)||"time",false)});
+/* ---- menü / paylaş / APK ---- */
+const MENU=[["Namaz vakitleri",()=>go("time")],["Kur'an-ı Kerim",()=>{DS="kuran";go("dua")}],["Âyet ara",()=>{DS="kuran";go("dua");setTimeout(()=>{const q=$("#qs");if(q)q.focus()},120)}],["Dualar",()=>{DS="dua";go("dua")}],["Konum ve ayarlar",()=>go("set")],["Android APK indir",()=>{location.href=apkUrl()}],["Uygulamayı paylaş",share]];
+$("#dm").innerHTML=MENU.map((m,i)=>`<button class="sc" data-i="${i}"><div class="t"><b>${m[0]}</b></div></button>`).join("");
+const openDr=()=>$("#dr").classList.add("on"),closeDr=()=>$("#dr").classList.remove("on");
+$("#mn").onclick=openDr;$("#dr .ov").onclick=closeDr;$("#dm").onclick=e=>{const b=e.target.closest("button");if(b){closeDr();MENU[+b.dataset.i][1]()}};
+function apkUrl(){const h=location.hostname.split("."),p=location.pathname.split("/")[1];return h[1]==="github"&&p?"https://github.com/"+h[0]+"/"+p+"/releases/latest/download/EzanVaktim.apk":"https://github.com/xmifrmx/ezan/releases/latest/download/EzanVaktim.apk"}
+async function share(){const d={title:"Ezan Vaktim",text:"Namaz vakitleri, imsakiye, zikirmatik, dualar ve Kur'an-ı Kerim",url:location.href.split("#")[0]};
+ try{if(navigator.share)await navigator.share(d);else{await navigator.clipboard.writeText(d.url);toast("Bağlantı kopyalandı")}}catch(e){}}
+$("#sh").onclick=share;
+const ua=navigator.userAgent,isA=/Android/i.test(ua),isI=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1),standalone=matchMedia("(display-mode: standalone)").matches||navigator.standalone;
+let dip=null;addEventListener("beforeinstallprompt",e=>{e.preventDefault();dip=e;$("#pwa").style.display="flex"});
+["apk1","apk2"].forEach(i=>{$("#"+i).href=apkUrl();$("#"+i).setAttribute("download","EzanVaktim.apk")});
+if(LN||!isA)$("#apk2").style.display="none";if(LN)$("#apkc").style.display="none";
+$("#pwa").onclick=async()=>{if(dip){dip.prompt();await dip.userChoice;dip=null;$("#sheet").classList.remove("on")}};
+$("#sx").onclick=()=>{$("#sheet").classList.remove("on");localStorage.setItem("skip",Date.now())};
+setTimeout(()=>{if(LN||standalone)return;const sk=+localStorage.getItem("skip")||0;if(Date.now()-sk<3*864e5)return;
+ if(isI){$("#apk1").style.display="none";$("#sp").textContent="Safari'de Paylaş düğmesine, ardından “Ana Ekrana Ekle”ye dokunarak uygulamayı yükleyin.";}
+ else if(!isA){$("#apk1").style.display="none";$("#sp").textContent="Tarayıcı menüsünden “Uygulamayı yükle” ile bilgisayarınıza ekleyebilir; Android telefonda APK indirebilirsiniz.";if(!dip){$("#sheet").classList.remove("on");return}}
+ $("#sheet").classList.add("on")},2500);
+/* ---- başlat ---- */
+applyTheme();load();setInterval(tick,1000);zr();
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)tick()});
+if(!LN&&"serviceWorker"in navigator&&location.protocol.indexOf("http")===0)addEventListener("load",()=>navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).catch(()=>{}));
+</script>
+</body>
+</html>
