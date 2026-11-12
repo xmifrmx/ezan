@@ -22,7 +22,7 @@ html,body{margin:0;height:100%;overflow:hidden;color:var(--tx);font-family:var(-
 body{background:linear-gradient(180deg,var(--b1),var(--b2));display:flex;flex-direction:column;padding-top:env(safe-area-inset-top)}
 .sky{position:fixed;left:0;bottom:0;width:100%;height:42vh;pointer-events:none;z-index:0}.sky g{fill:var(--sk);opacity:.8}
 .moon{position:fixed;top:78px;right:14px;width:62px;height:62px;border-radius:50%;box-shadow:-15px 7px 0 0 #f6dc9b;filter:drop-shadow(0 0 14px rgba(246,220,155,.55));pointer-events:none;z-index:0;opacity:.55}
-.st{position:fixed;top:0;left:0;width:2px;height:2px;border-radius:50%;pointer-events:none;z-index:0;box-shadow:8vw 9vh #fffc,22vw 4vh #fff9,36vw 14vh #fff8,52vw 7vh #fffc,66vw 19vh #fff9,81vw 11vh #fff8,93vw 5vh #fffc,14vw 25vh #fff8,45vw 28vh #fff7,74vw 31vh #fff8,28vw 38vh #fff6,90vw 36vh #fff7}
+.st{position:fixed;top:0;left:0;width:2px;height:2px;border-radius:50%;pointer-events:none;z-index:0;box-shadow:8vw 19vh #fffc,22vw 24vh #fff9,36vw 31vh #fff8,52vw 22vh #fffc,66vw 36vh #fff9,81vw 28vh #fff8,93vw 21vh #fffc,14vw 41vh #fff8,45vw 45vh #fff7,74vw 48vh #fff8,28vw 55vh #fff6,90vw 52vh #fff7}
 [data-l="1"] .moon,[data-l="1"] .st{display:none}
 header,main,nav{position:relative;z-index:1}
 header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px 6px}
@@ -73,7 +73,7 @@ select option{color:#111}
 .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:0;border-radius:16px;padding:15px;font:800 16px var(--sans);color:#14100a;background:linear-gradient(90deg,var(--ac),var(--ac2));cursor:pointer;text-decoration:none}
 .btn.g{background:var(--cd2);color:var(--tx);border:1px solid var(--ln)}
 .h3{display:flex;align-items:center;gap:8px;font-weight:700;margin:2px 0 12px}.h3 .ic{color:var(--ac)}
-.th{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.th button{border:2px solid transparent;background:var(--cd);border-radius:16px;padding:8px 8px 9px;color:var(--tx);font:700 12px var(--sans);cursor:pointer}.th button.on{border-color:var(--ac)}
+.th{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.th button{border:2px solid transparent;background:var(--cd);border-radius:16px;padding:8px 6px 6px;color:var(--tx);font:700 12px var(--sans);cursor:pointer;display:flex;flex-direction:column;min-width:0}.th button span{display:flex;align-items:center;justify-content:center;min-height:2.6em;line-height:1.2;text-align:center;word-break:break-word}.th button.on{border-color:var(--ac)}
 .th u{display:block;height:52px;border-radius:10px;margin-bottom:7px;position:relative}.th u:after{content:"";position:absolute;top:7px;right:8px;width:9px;height:9px;border-radius:50%;background:var(--d)}
 .sw{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--ln)}.sw:last-child{border:0}.sw span{flex:1}.sw select{width:auto;margin:0;padding:8px 30px 8px 10px;font-size:15px}.sw input[type=checkbox]{width:24px;height:24px;accent-color:var(--ac)}
 .sc{display:flex;gap:10px;align-items:center;padding:13px;background:var(--cd);border:1px solid var(--ln);border-radius:16px;margin-bottom:8px;cursor:pointer;width:100%;color:var(--tx);font:inherit;text-align:left}
@@ -91,7 +91,8 @@ mark{background:rgba(246,199,68,.35);color:inherit;border-radius:4px}
 #sheet .in{max-width:520px;margin:auto;background:var(--b1);border:1px solid var(--ac);border-radius:22px;padding:14px 16px;box-shadow:0 -10px 50px rgba(0,0,0,.5);display:flex;flex-wrap:wrap;gap:8px;align-items:center}#sheet .in>h3,#sheet .in>p{flex:0 0 100%}#sheet .btn{flex:1 1 150px;padding:12px;font-size:15px;margin:0}#sheet .x{flex:0 0 auto;width:auto;padding:10px 6px}
 #sheet h3{margin:0;font-size:17px}#sheet p{margin:0;color:var(--mu);font-size:13px;line-height:1.45}
 #sheet .x{background:none;border:0;color:var(--mu);width:100%;padding:8px;font:600 14px var(--sans);cursor:pointer}
-#toast{position:fixed;left:50%;top:76px;transform:translateX(-50%);background:var(--ac);color:var(--oa);padding:11px 18px;border-radius:99px;font-weight:700;z-index:40;opacity:0;pointer-events:none;transition:opacity .25s}#toast.on{opacity:1}
+#toast{position:fixed;left:50%;bottom:calc(100px + env(safe-area-inset-bottom));transform:translateX(-50%);width:max-content;max-width:calc(100% - 40px);text-align:center;line-height:1.4;font-size:15px;background:var(--ac);color:var(--oa);padding:12px 20px;border-radius:16px;font-weight:700;z-index:40;opacity:0;pointer-events:none;transition:opacity .25s;box-shadow:0 8px 30px rgba(0,0,0,.35)}#toast.on{opacity:1}
+#md{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.62)}#md.on{display:flex}#md .in{width:100%;max-width:420px;max-height:90vh;overflow-y:auto;background:var(--b1);border:1px solid var(--ln);border-radius:24px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.5)}#md h3{margin:0 0 10px;font-size:19px;line-height:1.3}#md p{margin:0 0 16px;color:var(--mu);line-height:1.6;font-size:15px;white-space:pre-line}#md .mb{display:flex;gap:10px}#md .btn{padding:13px;font-size:15px}
 @media(min-width:700px){.sky{width:560px;left:50%;margin-left:-280px;height:240px}body{font-size:17px}main{padding-top:14px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -142,6 +143,7 @@ mark{background:rgba(246,199,68,.35);color:inherit;border-radius:4px}
 <nav id="nav"></nav>
 <div id="dr"><div class="ov"></div><aside><h2>Ezan Vaktim</h2><div id="dm"></div></aside></div>
 <div id="sheet"><div class="in"><h3>Ezan Vaktim'i cihazına indir</h3><p id="sp">Vakitler, sayaç, Kur'an ve dualar tek dokunuşla yanında olsun.</p><a class="btn" id="apk1" href="#">⬇ APK indir (Android)</a><button class="btn g" id="pwa" style="display:none">Ana ekrana ekle</button><button class="x" id="sx">Şimdi değil</button></div></div>
+<div id="md" role="dialog" aria-modal="true"><div class="in"><h3 id="mh2"></h3><p id="mp"></p><input id="mi" class="inp" style="display:none" autocomplete="off"><div class="mb"><button class="btn g" id="mc"></button><button class="btn" id="mo"></button></div></div></div>
 <div id="toast"></div>
 <script>
 "use strict";
@@ -155,10 +157,17 @@ const svg=(p,c)=>`<svg class="ic ${c||""}" viewBox="0 0 24 24">${p}</svg>`;
 const THEMES=[["Mavi Hilal","#07142f","#102a5c","#f6c744","#f2f6ff","#9db0d6","255,150,60"],["Altın Hilal","#0d0a05","#2a1c08","#f2b84b","#fbf1da","#b9a67c","240,170,60"],["Zümrüt Gece","#03140f","#0b3a2c","#3fe0a8","#e6faf2","#86bfae","40,200,150"],["Mor Şafak","#1a0b3a","#5a1b6e","#ff8fcb","#f8ecff","#c4a3d6","255,110,170"],["Çöl Günbatımı","#2a1205","#a65416","#ffd27a","#fff3e0","#e0b98a","255,170,70"],["Gece Siyahı","#000000","#07080c","#ffd24a","#f2f2f2","#8b8b93","80,80,100"],["Okyanus","#04243a","#0b6a80","#3de0d0","#e6f8fc","#86c3d0","60,220,210"],["Gül Kurusu","#2a0816","#8a2447","#ff9ab8","#ffeef3","#d9a3b5","255,120,150"],["Ramazan Feneri","#2a0a05","#a02a0a","#ffbf47","#fff0e0","#e0a98f","255,140,40"],["Medine Yeşili","#05200f","#0e4a22","#b6f06a","#eaf8ea","#8fc29b","120,220,100"],["Açık Gün","#eef3fb","#c9d8f0","#a8710a","#14213d","#566685","255,200,120",1],["Açık Nane","#eaf7f1","#b9e4d3","#0c8a62","#0f3326","#4f7a69","120,210,170",1]];
 let S=Object.assign({il:"İstanbul",cu:null,cl:"",th:0,nt:{},on:false,ars:30,fav:[],zi:0,zt:33,z:{},day:{},qm:"both",ql:null,qk:null,dl:[]},JSON.parse(localStorage.getItem("ev2")||"{}"));
 const save=()=>{try{localStorage.setItem("ev2",JSON.stringify(S))}catch(e){}};
+const NATIVE=!!(window.Capacitor&&Capacitor.isNativePlatform&&Capacitor.isNativePlatform());
+const plug=n=>{try{return Capacitor.Plugins[n]||Capacitor.registerPlugin(n)}catch(e){return null}};
+const SB=NATIVE?plug("StatusBar"):null,GEO=NATIVE?plug("Geolocation"):null;
+function ask(o){return new Promise(res=>{const m=$("#md"),i=$("#mi"),mc=$("#mc"),mo=$("#mo");$("#mh2").textContent=o.title;$("#mp").textContent=o.text||"";
+ i.style.display=o.input!=null?"block":"none";i.value=o.input||"";i.placeholder=o.ph||"";mc.style.display=o.cancel?"flex":"none";mc.textContent=o.cancel||"";mo.textContent=o.ok||"Tamam";m.classList.add("on");
+ const end=v=>{m.classList.remove("on");mo.onclick=mc.onclick=null;res(v)};
+ mo.onclick=()=>end(o.input!=null?i.value:true);mc.onclick=()=>end(o.input!=null?null:false);if(o.input!=null)setTimeout(()=>i.focus(),60)})}
 const toast=m=>{const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove("on"),2200)};
 function applyTheme(){const t=THEMES[S.th],L=t[7]?1:0,r=document.documentElement.style;
  const m={"--b1":t[1],"--b2":t[2],"--ac":t[3],"--tx":t[4],"--mu":t[5],"--gl":t[6],"--oa":L?"#fff":"#1b1405","--cd":L?"rgba(255,255,255,.7)":"rgba(255,255,255,.07)","--cd2":L?"rgba(255,255,255,.9)":"rgba(255,255,255,.12)","--ln":L?"rgba(20,33,61,.12)":"rgba(255,255,255,.1)","--sk":L?"#6d86ad":"#050b1c","--ac2":L?"#2f6fd6":"#6cb4ff","--arsz":S.ars+"px"};
- for(const k in m)r.setProperty(k,m[k]);document.body.dataset.l=L;document.querySelector("meta[name=theme-color]").content=t[1]}
+ for(const k in m)r.setProperty(k,m[k]);document.body.dataset.l=L;if(SB){try{SB.setOverlaysWebView({overlay:false}).catch(()=>{});SB.setBackgroundColor({color:t[1]}).catch(()=>{});SB.setStyle({style:L?"LIGHT":"DARK"}).catch(()=>{})}catch(e){}}document.querySelector("meta[name=theme-color]").content=t[1]}
 /* ---- vakit hesabı (cihazda, Diyanet açıları) ---- */
 const TUNE=[0,-7,5,4,7,0];
 function calc(dt,la,lo){
@@ -171,8 +180,8 @@ function calc(dt,la,lo){
  const noon=12-lo/15-eqt+tz,H=a=>Math.acos((sn(a)-sn(la)*sn(dec))/(cs(la)*cs(dec)))/r/15;
  const asr=Math.atan(1/(1+Math.tan(Math.abs(la-dec)*r)))/r;
  return [noon-H(-18),noon-H(-.833),noon,noon+H(asr),noon+H(-.833),noon+H(-17)].map((h,i)=>{if(isNaN(h))return"--:--";const m=Math.round(h*60+TUNE[i]);return pad(((Math.floor(m/60)%24)+24)%24)+":"+pad(((m%60)+60)%60)})}
-let HF,HN;try{HF=new Intl.DateTimeFormat("en-u-ca-islamic-umalqura",{day:"numeric",month:"numeric",year:"numeric"});HN=new Intl.DateTimeFormat("tr-TR-u-ca-islamic-umalqura",{month:"long"})}catch(e){}
-function hij(d){try{const p=HF.formatToParts(d),g=t=>parseInt(p.find(x=>x.type===t).value,10);return{d:g("day"),n:g("month"),y:g("year"),m:HN.format(d)}}catch(e){return{d:0,n:0,y:0,m:""}}}
+const HM=["Muharrem","Safer","Rebiülevvel","Rebiülahir","Cemaziyelevvel","Cemaziyelahir","Recep","Şaban","Ramazan","Şevval","Zilkade","Zilhicce"];let HF;try{HF=new Intl.DateTimeFormat("en-u-ca-islamic-umalqura",{day:"numeric",month:"numeric",year:"numeric"})}catch(e){}
+function hij(d){try{const p=HF.formatToParts(d),g=t=>parseInt(p.find(x=>x.type===t).value,10);const n=g("month");return{d:g("day"),n:n,y:g("year"),m:HM[n-1]||""}}catch(e){return{d:0,n:0,y:0,m:""}}}
 const coords=()=>S.cu||IL[S.il]||IL["İstanbul"],place=()=>S.cu?(S.cl||S.il):S.il;
 function dayData(d){const c=coords();return{t:calc(d,c[0],c[1]),h:hij(d),wd:d.getDay()}}
 const toDate=(dt,s)=>{const p=s.split(":");return new Date(dt.getFullYear(),dt.getMonth(),dt.getDate(),+p[0],+p[1],0)};
@@ -199,15 +208,15 @@ function tick(){
  $("#ring").style.strokeDashoffset=276.46*(1-f);$("#mk").setAttribute("cx",50+44*Math.cos(a));$("#mk").setAttribute("cy",50+44*Math.sin(a));
  document.title=(s<3600?Math.ceil(s/60)+" dk · ":"")+NAMES[ni===6?0:ni]+" · Ezan Vaktim";notify(now)}
 /* ---- bildirimler ---- */
-const NK=[0,2,3,4,5],LN=(window.Capacitor&&Capacitor.isNativePlatform&&Capacitor.isNativePlatform())?Capacitor.Plugins.LocalNotifications:null;
+const NK=[0,2,3,4,5],LN=NATIVE?plug("LocalNotifications"):null;
 let busy=false;
 async function schedule(){
  if(!LN||busy||!T)return;busy=true;
  try{const any=S.on||NK.some(i=>S.nt[i]&&S.nt[i].on),pend=await LN.getPending();
   if(pend.notifications.length)await LN.cancel({notifications:pend.notifications.map(n=>({id:n.id}))});
   if(!any)return;
-  let pm=await LN.checkPermissions();if(pm.display!=="granted")pm=await LN.requestPermissions();if(pm.display!=="granted")return;
-  try{const ex=await LN.checkExactNotificationSetting();if(ex.exact_alarm!=="granted"&&!localStorage.getItem("exAsk")){localStorage.setItem("exAsk","1");await LN.changeExactNotificationSetting()}}catch(e){}
+  let pm=await LN.checkPermissions();if(pm.display!=="granted")pm=await LN.requestPermissions();if(pm.display!=="granted"){await ask({title:"Bildirim izni verilmedi",text:"Hatırlatma alabilmek için: Telefon Ayarları → Uygulamalar → Ezan Vaktim → Bildirimler bölümünden bildirimleri açın.",ok:"Anladım"});S.on=false;NK.forEach(i=>{if(S.nt[i])S.nt[i].on=false});save();if($("#v-set").classList.contains("on"))settings();return}
+  try{const ex=await LN.checkExactNotificationSetting();if(ex.exact_alarm!=="granted"&&!localStorage.getItem("exAsk")){localStorage.setItem("exAsk","1");if(await ask({title:"Tam vaktinde hatırlatma için izin gerekli",text:"Hatırlatmaların dakikası dakikasına gelmesi için bir sonraki ekranda “Alarmlar ve hatırlatıcılar” iznini açın, sonra geri dönün.",ok:"Ayarları aç",cancel:"Şimdi değil"}))await LN.changeExactNotificationSetting()}}catch(e){}
   await LN.createChannel({id:"vakit",name:"Namaz vakitleri",description:"Vakit hatırlatmaları",importance:4,visibility:1,vibration:true});
   const list=[],now=new Date();
   for(let d=0;d<7;d++){const dt=new Date(now.getFullYear(),now.getMonth(),now.getDate()+d),day=dayData(dt);
@@ -242,9 +251,9 @@ function zr(){const st=S.z[S.zi]||(S.z[S.zi]={c:0,l:0});
 $("#zb").onclick=()=>{const st=S.z[S.zi]||(S.z[S.zi]={c:0,l:0});st.c++;S.day={[tk()]:(S.day[tk()]||0)+1};
  if(st.c>=S.zt){st.c=0;st.l++;if(navigator.vibrate)navigator.vibrate([120,60,120])}else if(navigator.vibrate)navigator.vibrate(12);beep();save();zr()};
 $("#zc").onclick=e=>{const b=e.target.closest("button");if(b){S.zi=+b.dataset.i;save();zr()}};
-$("#zt").onclick=e=>{const b=e.target.closest("button");if(!b)return;
- if(b.dataset.r){if(confirm("Bu zikrin sayacı sıfırlansın mı?")){S.z[S.zi]={c:0,l:0};save();zr()}}
- else if(b.dataset.t==="x"){const v=parseInt(prompt("Hedef sayı:",S.zt),10);if(v>0){S.zt=v;save();zr()}}else{S.zt=+b.dataset.t;save();zr()}};
+$("#zt").onclick=async e=>{const b=e.target.closest("button");if(!b)return;
+ if(b.dataset.r){if(await ask({title:"Sayaç sıfırlansın mı?",text:ZK[S.zi]+" zikrinin sayısı ve tur sayısı sıfırlanacak.",ok:"Sıfırla",cancel:"Vazgeç"})){S.z[S.zi]={c:0,l:0};save();zr()}}
+ else if(b.dataset.t==="x"){const r=await ask({title:"Hedef sayıyı girin",text:"Her turda kaç zikir çekeceğinizi yazın. Örnek: 100",input:String(S.zt),ph:"Örn. 100",ok:"Kaydet",cancel:"Vazgeç"});if(r===null)return;const v=parseInt(r,10);if(v>0&&v<=100000){S.zt=v;save();zr()}else await ask({title:"Geçersiz sayı",text:"1 ile 100000 arasında bir sayı yazın.",ok:"Tamam"})}else{S.zt=+b.dataset.t;save();zr()}};
 /* ---- dualar ---- */
 const DUAS=[
 ["Anne-Baba İçin Dua","Aile","رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا","Rabbirhamhümâ kemâ rabbeyânî sagîrâ.","Rabbim! Küçüklüğümde onlar beni nasıl yetiştirdilerse, sen de onlara öyle merhamet et.","İsrâ, 24"],
@@ -332,20 +341,31 @@ function settings(){const ilo=Object.keys(IL);
  $("#il").innerHTML=ilo.map(n=>`<option ${n===S.il?"selected":""}>${n}</option>`).join("");
  $("#ilc").innerHTML=`<option value="m">${S.cu&&S.cl?S.cl:"Merkez"}</option><option value="gps">📍 Konumumu kullan (GPS)</option><option value="el">✎ Elle koordinat gir</option>`;
  $("#lm").textContent=S.cu?"Kullanılan koordinat: "+S.cu[0].toFixed(3)+", "+S.cu[1].toFixed(3):"İl merkezi koordinatı kullanılıyor. İlçe için GPS veya elle koordinat seçin.";
- $("#th").innerHTML=THEMES.map((t,i)=>`<button data-t="${i}" class="${i===S.th?"on":""}"><u style="background:linear-gradient(180deg,${t[1]},${t[2]});--d:${t[3]}"></u>${t[0]}</button>`).join("");
+ $("#th").innerHTML=THEMES.map((t,i)=>`<button data-t="${i}" class="${i===S.th?"on":""}"><u style="background:linear-gradient(180deg,${t[1]},${t[2]});--d:${t[3]}"></u><span>${t[0]}</span></button>`).join("");
  const ops=[0,5,10,15,30,45,60,120];
  $("#nt").innerHTML=NK.map(i=>{const c=S.nt[i]||{on:false,m:15};return `<div class="sw"><span>${NAMES[i]}</span><select data-m="${i}">${ops.map(m=>`<option value="${m}" ${m===c.m?"selected":""}>${m?m+" dk önce":"Vaktinde"}</option>`).join("")}</select><input type="checkbox" data-n="${i}" ${c.on?"checked":""} aria-label="${NAMES[i]} hatırlatması"></div>`}).join("")+`<div class="sw"><span>Hatırlatma varsa vakit girince de bildir</span><input type="checkbox" id="on" ${S.on?"checked":""}></div>`;
  $("#ars").value=S.ars}
-$("#sv").onclick=()=>{const il=$("#il").value,k=$("#ilc").value;
+async function gps(){
+ const denied=()=>ask({title:"Konum izni verilmedi",text:"Vakitler şu an il merkezine göre gösteriliyor.\n\nİlçenize göre almak için: Telefon Ayarları → Uygulamalar → Ezan Vaktim → İzinler → Konum bölümünden izni açıp tekrar deneyin. İsterseniz “Elle koordinat gir” seçeneğini de kullanabilirsiniz.",ok:"Anladım"});
+ const fail=()=>ask({title:"Konum alınamadı",text:"Telefonun konum (GPS) özelliğinin açık olduğundan emin olun, açık havada tekrar deneyin. Olmazsa il merkezi veya elle koordinat kullanabilirsiniz.",ok:"Anladım"});
+ try{
+  if(GEO){let p=await GEO.checkPermissions();const ok=x=>x.location==="granted"||x.coarseLocation==="granted";
+   if(!ok(p))p=await GEO.requestPermissions();if(!ok(p)){await denied();return null}
+   const r=await GEO.getCurrentPosition({enableHighAccuracy:true,timeout:20000,maximumAge:600000});return[r.coords.latitude,r.coords.longitude]}
+  if(!navigator.geolocation){await fail();return null}
+  return await new Promise(res=>navigator.geolocation.getCurrentPosition(p=>res([p.coords.latitude,p.coords.longitude]),async e=>{await(e.code===1?denied():fail());res(null)},{timeout:20000,maximumAge:6e5,enableHighAccuracy:true}))
+ }catch(e){await(/denied|permission|izin/i.test(String(e&&e.message))?denied():fail());return null}}
+$("#sv").onclick=async()=>{const il=$("#il").value,k=$("#ilc").value,btn=$("#sv");
  const done=()=>{save();applyTheme();load();settings();toast("Kaydedildi: "+place());go("time")};
- if(k==="gps"){if(!navigator.geolocation){toast("Bu cihazda GPS yok");return}
-  navigator.geolocation.getCurrentPosition(p=>{S.il=il;S.cu=[p.coords.latitude,p.coords.longitude];S.cl=il+" · Konumum";done()},()=>toast("Konum izni verilmedi"),{timeout:15000,maximumAge:6e5});return}
- if(k==="el"){const v=(prompt("Enlem,boylam (ör. 37.07,37.38):")||"").split(",").map(Number);if(v.length!==2||v.some(isNaN)||Math.abs(v[0])>66||Math.abs(v[1])>180){toast("Geçersiz koordinat");return}S.il=il;S.cu=v;S.cl=il+" · Özel";done();return}
+ if(k==="gps"){btn.disabled=true;btn.textContent="Konum alınıyor…";const c=await gps();btn.disabled=false;btn.textContent="✓ Kaydet ve başla";if(!c)return;S.il=il;S.cu=c;S.cl=il+" · Konumum";done();return}
+ if(k==="el"){const r=await ask({title:"Koordinat girin",text:"Enlem ve boylamı virgülle ayırarak yazın.\nÖrnek: 36.20,36.16 (Hatay)",input:S.cu?S.cu[0].toFixed(4)+","+S.cu[1].toFixed(4):"",ph:"enlem,boylam",ok:"Kaydet",cancel:"Vazgeç"});if(r===null)return;
+  const v=r.replace(/;/g,",").split(",").map(x=>parseFloat(x.trim().replace(",",".")));
+  if(v.length!==2||v.some(isNaN)||Math.abs(v[0])>66||Math.abs(v[1])>180){await ask({title:"Koordinat geçersiz",text:"Enlem −66 ile 66, boylam −180 ile 180 arasında olmalı. Örnek: 36.20,36.16",ok:"Tamam"});return}S.il=il;S.cu=v;S.cl=il+" · Özel";done();return}
  S.il=il;S.cu=null;S.cl="";done()};
 $("#th").onclick=e=>{const b=e.target.closest("button");if(b){S.th=+b.dataset.t;save();applyTheme();settings()}};
 $("#ars").oninput=e=>{S.ars=+e.target.value;save();applyTheme()};
 $("#nt").onchange=async e=>{const t=e.target;
- if(!LN&&t.checked&&(t.dataset.n!=null||t.id==="on")&&"Notification"in window&&Notification.permission!=="granted"){const p=await Notification.requestPermission();if(p!=="granted"){t.checked=false;toast("Bildirim izni verilmedi");return}}
+ if(!LN&&t.checked&&(t.dataset.n!=null||t.id==="on")&&"Notification"in window&&Notification.permission!=="granted"){const p=await Notification.requestPermission();if(p!=="granted"){t.checked=false;await ask({title:"Bildirim izni verilmedi",text:"Tarayıcının adres çubuğundaki kilit simgesinden bu site için bildirimlere izin verin. Telefonda kalıcı hatırlatma için Android uygulamasını (APK) kurmanız önerilir.",ok:"Anladım"});return}}
  if(t.dataset.n!=null){const i=t.dataset.n;S.nt[i]=Object.assign({on:false,m:15},S.nt[i],{on:t.checked})}
  if(t.dataset.m!=null){const i=t.dataset.m;S.nt[i]=Object.assign({on:false,m:15},S.nt[i],{m:+t.value})}
  if(t.id==="on")S.on=t.checked;save();schedule()};
@@ -361,9 +381,10 @@ $("#nav").onclick=e=>{const b=e.target.closest("button");if(b){if(b.dataset.k===
 addEventListener("popstate",e=>{closeDr();go((e.state&&e.state.t)||"time",false)});
 /* ---- menü / paylaş / APK ---- */
 const MENU=[["Namaz vakitleri",()=>go("time")],["Kur'an-ı Kerim",()=>{DS="kuran";go("dua")}],["Âyet ara",()=>{DS="kuran";go("dua");setTimeout(()=>{const q=$("#qs");if(q)q.focus()},120)}],["Dualar",()=>{DS="dua";go("dua")}],["Konum ve ayarlar",()=>go("set")],["Android APK indir",()=>{location.href=apkUrl()}],["Uygulamayı paylaş",share]];
-$("#dm").innerHTML=MENU.map((m,i)=>`<button class="sc" data-i="${i}"><div class="t"><b>${m[0]}</b></div></button>`).join("");
+const MN=NATIVE?MENU.filter(m=>m[0].indexOf("APK")<0):MENU;
+$("#dm").innerHTML=MN.map((m,i)=>`<button class="sc" data-i="${i}"><div class="t"><b>${m[0]}</b></div></button>`).join("");
 const openDr=()=>$("#dr").classList.add("on"),closeDr=()=>$("#dr").classList.remove("on");
-$("#mn").onclick=openDr;$("#dr .ov").onclick=closeDr;$("#dm").onclick=e=>{const b=e.target.closest("button");if(b){closeDr();MENU[+b.dataset.i][1]()}};
+$("#mn").onclick=openDr;$("#dr .ov").onclick=closeDr;$("#dm").onclick=e=>{const b=e.target.closest("button");if(b){closeDr();MN[+b.dataset.i][1]()}};
 function apkUrl(){const h=location.hostname.split("."),p=location.pathname.split("/")[1];return h[1]==="github"&&p?"https://github.com/"+h[0]+"/"+p+"/releases/latest/download/EzanVaktim.apk":"https://github.com/xmifrmx/ezan/releases/latest/download/EzanVaktim.apk"}
 async function share(){const d={title:"Ezan Vaktim",text:"Namaz vakitleri, imsakiye, zikirmatik, dualar ve Kur'an-ı Kerim",url:location.href.split("#")[0]};
  try{if(navigator.share)await navigator.share(d);else{await navigator.clipboard.writeText(d.url);toast("Bağlantı kopyalandı")}}catch(e){}}
@@ -371,17 +392,17 @@ $("#sh").onclick=share;
 const ua=navigator.userAgent,isA=/Android/i.test(ua),isI=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1),standalone=matchMedia("(display-mode: standalone)").matches||navigator.standalone;
 let dip=null;addEventListener("beforeinstallprompt",e=>{e.preventDefault();dip=e;$("#pwa").style.display="flex"});
 ["apk1","apk2"].forEach(i=>{$("#"+i).href=apkUrl();$("#"+i).setAttribute("download","EzanVaktim.apk")});
-if(LN||!isA)$("#apk2").style.display="none";if(LN)$("#apkc").style.display="none";
+if(NATIVE||!isA)$("#apk2").style.display="none";if(NATIVE)$("#apkc").style.display="none";
 $("#pwa").onclick=async()=>{if(dip){dip.prompt();await dip.userChoice;dip=null;$("#sheet").classList.remove("on")}};
 $("#sx").onclick=()=>{$("#sheet").classList.remove("on");localStorage.setItem("skip",Date.now())};
-setTimeout(()=>{if(LN||standalone)return;const sk=+localStorage.getItem("skip")||0;if(Date.now()-sk<3*864e5)return;
+setTimeout(()=>{if(NATIVE||standalone)return;const sk=+localStorage.getItem("skip")||0;if(Date.now()-sk<3*864e5)return;
  if(isI){$("#apk1").style.display="none";$("#sp").textContent="Safari'de Paylaş düğmesine, ardından “Ana Ekrana Ekle”ye dokunarak uygulamayı yükleyin.";}
  else if(!isA){$("#apk1").style.display="none";$("#sp").textContent="Tarayıcı menüsünden “Uygulamayı yükle” ile bilgisayarınıza ekleyebilir; Android telefonda APK indirebilirsiniz.";if(!dip){$("#sheet").classList.remove("on");return}}
  $("#sheet").classList.add("on")},2500);
 /* ---- başlat ---- */
 applyTheme();load();setInterval(tick,1000);zr();
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)tick()});
-if(!LN&&"serviceWorker"in navigator&&location.protocol.indexOf("http")===0)addEventListener("load",()=>navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).catch(()=>{}));
+if(!NATIVE&&"serviceWorker"in navigator&&location.protocol.indexOf("http")===0)addEventListener("load",()=>navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).catch(()=>{}));
 </script>
 </body>
 </html>
