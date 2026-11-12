@@ -22,9 +22,21 @@ jobs:
       - run: npm install
       - run: npx cap add android
       - run: pip install pillow
-      - run: python3 scripts/patch_android.py
+      - name: Android projesini düzenle (izinler, simge, renkler)
+        run: python3 scripts/patch_android.py
+      - name: Canlı bildirim çubuğu kodunu ekle
+        run: python3 scripts/patch_native_bar.py
       - run: npx cap sync android
-      - run: cd android && chmod +x gradlew && ./gradlew assembleDebug --no-daemon
+      - name: APK derle (canlı bildirim çubuğuyla)
+        id: nat
+        continue-on-error: true
+        run: cd android && chmod +x gradlew && ./gradlew assembleDebug --no-daemon
+      - name: Yedek derleme (canlı bildirim çubuğu olmadan)
+        if: steps.nat.outcome == 'failure'
+        run: |
+          echo "::warning::Canlı bildirim çubuğu derlenemedi; APK bu özellik olmadan üretiliyor."
+          python3 scripts/patch_native_bar.py remove
+          cd android && ./gradlew clean assembleDebug --no-daemon
       - run: cp android/app/build/outputs/apk/debug/app-debug.apk EzanVaktim.apk
       - uses: actions/upload-artifact@v4
         with:
